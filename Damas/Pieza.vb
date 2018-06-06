@@ -1,0 +1,51 @@
+﻿Public Class Pieza
+    Private colorValue As String
+    Private imageValue As PictureBox
+    Private rangeValue As Integer
+
+    Public Property Color() As String
+        Get
+            ' Gets the property value.
+            Return colorValue
+        End Get
+        Set(ByVal Value As String)
+            ' Sets the property value.
+            colorValue = Value
+        End Set
+    End Property
+
+    Public Property Range() As String
+        Get
+            ' Gets the property value.
+            Return rangeValue
+        End Get
+        Set(ByVal Value As String)
+            ' Sets the property value.
+            rangeValue = Value
+        End Set
+    End Property
+
+    Public Property Image() As PictureBox
+        Get
+            ' Gets the property value.
+            Return imageValue
+        End Get
+        Set(ByVal Value As PictureBox)
+            ' Sets the property value.
+            imageValue = Value
+        End Set
+    End Property
+
+    Public Sub New(ByVal colorValue As String)
+        ' Set the property value.
+        Me.colorValue = colorValue
+        Me.rangeValue = 1
+        Dim image As New PictureBox
+        image.Image = System.Drawing.Image.FromFile("C:\Users\informatica\Documents\Visual Studio 2015\Projects\VisualBasic\Damas\Damas\recursos\peon-blanco.png")
+        image.SizeMode = image.SizeMode.StretchImage
+        image.Size = New Size(68, 68)
+        image.BackColor = Drawing.Color.Black
+        Me.imageValue = image
+    End Sub
+
+End Class
