@@ -41,11 +41,20 @@
         Me.colorValue = colorValue
         Me.rangeValue = 1
         Dim image As New PictureBox
-        image.Image = System.Drawing.Image.FromFile("C:\Users\informatica\Documents\Visual Studio 2015\Projects\VisualBasic\Damas\Damas\recursos\peon-blanco.png")
+        If colorValue = "B" Then
+            image.Image = System.Drawing.Image.FromFile("..\..\recursos\peon-blanco.png")
+        Else
+            image.Image = System.Drawing.Image.FromFile("..\..\recursos\peon-negro.png")
+        End If
         image.SizeMode = image.SizeMode.StretchImage
         image.Size = New Size(68, 68)
         image.BackColor = Drawing.Color.Black
+        AddHandler image.DragDrop, AddressOf Mover
         Me.imageValue = image
     End Sub
+    Public Sub Mover()
+        MsgBox("hola")
+    End Sub
+
 
 End Class
