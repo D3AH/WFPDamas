@@ -63,14 +63,12 @@
         coordenadas.Y = System.Windows.Forms.Control.MousePosition.Y - sender.top
         coordenadas.X = System.Windows.Forms.Control.MousePosition.X - sender.left
     End Sub
-
     Public Sub imageMouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             sender.top = System.Windows.Forms.Control.MousePosition.Y - coordenadas.Y
             sender.left = System.Windows.Forms.Control.MousePosition.X - coordenadas.X
         End If
     End Sub
-
     Public Sub imageMouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
     End Sub
 End Class

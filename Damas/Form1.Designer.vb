@@ -38,7 +38,7 @@ Partial Class Form1
         Me.LayoutTablero.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
         Me.LayoutTablero.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
         Me.LayoutTablero.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
-        Me.LayoutTablero.Location = New System.Drawing.Point(28, 12)
+        Me.LayoutTablero.Location = New System.Drawing.Point(0, 0)
         Me.LayoutTablero.Name = "LayoutTablero"
         Me.LayoutTablero.RowCount = 8
         Me.LayoutTablero.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
@@ -56,7 +56,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(884, 641)
+        Me.ClientSize = New System.Drawing.Size(601, 601)
         Me.Controls.Add(Me.LayoutTablero)
         Me.Name = "Form1"
         Me.Text = "Form1"
