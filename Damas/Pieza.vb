@@ -2,6 +2,9 @@
     Private colorValue As String
     Private rangeValue As Integer
     Private imageValue As PictureBox
+    Private posicion(1) As Integer
+    Private coordenadas As Point
+
     'Constructor
     Public Sub New(ByVal colorValue As String)
         ' Set the property value.
@@ -18,9 +21,9 @@
         image.BackColor = Drawing.Color.Black
 
         'Eventos
-        'AddHandler image.MouseDown, AddressOf imageMouseDown
-        'AddHandler image.MouseMove, AddressOf imageMouseMove
-        'AddHandler image.MouseUp, AddressOf imageMouseUp
+        AddHandler image.MouseDown, AddressOf imageMouseDown
+        AddHandler image.MouseMove, AddressOf imageMouseMove
+        AddHandler image.MouseUp, AddressOf imageMouseUp
 
 
         Me.imageValue = image
@@ -59,17 +62,28 @@
         End Set
     End Property
 
+    Dim imagenTemporal As New PictureBox
+
     'Drag And drop
-    'Public Sub imageMouseDown(ByVal sender As Object, e As System.Windows.Forms.MouseEventArgs)
-    '    coordenadas.Y = System.Windows.Forms.Control.MousePosition.Y - sender.top
-    '    coordenadas.X = System.Windows.Forms.Control.MousePosition.X - sender.left
-    'End Sub
-    'Public Sub imageMouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
-    '    If e.Button = System.Windows.Forms.MouseButtons.Left Then
-    '        sender.top = System.Windows.Forms.Control.MousePosition.Y - coordenadas.Y
-    '        sender.left = System.Windows.Forms.Control.MousePosition.X - coordenadas.X
-    '    End If
-    'End Sub
-    'Public Sub imageMouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
-    'End Sub
+    Public Sub imageMouseDown(ByVal sender As Object, e As System.Windows.Forms.MouseEventArgs)
+        Me.posicion(0) = Tablero.LayoutTablero.GetColumn(Me.Image)
+        Me.posicion(0) = Tablero.LayoutTablero.GetColumn(Me.Image)
+        imagenTemporal.Image = My.Resources.reina_blanca
+        coordenadas.Y = Control.MousePosition.Y - sender.top
+        coordenadas.X = Control.MousePosition.X - sender.left
+        MsgBox(coordenadas.X & " - " & coordenadas.Y)
+        imagenTemporal.Location = coordenadas
+        imagenTemporal.BringToFront()
+        Tablero.Controls.Add(imagenTemporal)
+        Me.imageValue.Image = My.Resources.move
+    End Sub
+    Public Sub imageMouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
+    End Sub
+    Public Sub imageMouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
+        If Me.colorValue = "B" Then
+            Me.imageValue.Image = My.Resources.peon_blanco
+        Else
+            Me.imageValue.Image = My.Resources.peon_negro
+        End If
+    End Sub
 End Class
