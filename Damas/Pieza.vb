@@ -67,11 +67,10 @@
     'Drag And drop
     Public Sub imageMouseDown(ByVal sender As Object, e As System.Windows.Forms.MouseEventArgs)
         Me.posicion(0) = Tablero.LayoutTablero.GetColumn(Me.Image)
-        Me.posicion(0) = Tablero.LayoutTablero.GetColumn(Me.Image)
+        Me.posicion(1) = Tablero.LayoutTablero.GetRow(Me.Image)
         imagenTemporal.Image = My.Resources.reina_blanca
-        coordenadas.Y = Control.MousePosition.Y - sender.top
-        coordenadas.X = Control.MousePosition.X - sender.left
-        MsgBox(coordenadas.X & " - " & coordenadas.Y)
+        coordenadas.Y = Control.MousePosition.Y + Me.posicion(1) * 55 - sender.top
+        coordenadas.X = Control.MousePosition.X + Me.posicion(0) * 55 - sender.left
         imagenTemporal.Location = coordenadas
         imagenTemporal.BringToFront()
         Tablero.Controls.Add(imagenTemporal)
