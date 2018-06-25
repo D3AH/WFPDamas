@@ -29,8 +29,8 @@ Partial Class Inicio
         '
         Me.ButtonJugar.BackColor = System.Drawing.SystemColors.Window
         Me.ButtonJugar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonJugar.Font = New System.Drawing.Font("GodOfWar", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonJugar.Location = New System.Drawing.Point(670, 394)
+        Me.ButtonJugar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonJugar.Location = New System.Drawing.Point(463, 363)
         Me.ButtonJugar.Name = "ButtonJugar"
         Me.ButtonJugar.Size = New System.Drawing.Size(150, 46)
         Me.ButtonJugar.TabIndex = 0
@@ -43,9 +43,11 @@ Partial Class Inicio
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Damas.My.Resources.Resources.portrait
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(882, 689)
+        Me.ClientSize = New System.Drawing.Size(684, 651)
         Me.Controls.Add(Me.ButtonJugar)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Inicio"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Damas"
         Me.ResumeLayout(False)
 
