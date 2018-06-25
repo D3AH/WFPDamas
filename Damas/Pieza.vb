@@ -19,9 +19,10 @@
 
         image.SizeMode = 1
         image.Size = New Size(75, 75)
-        image.BackColor = Drawing.Color.Transparent
 
         Me.Image = image
+        Me.Image.BringToFront()
+        Me.Image.BackColor = Color.Black
 
         'Eventos
         AddHandler image.MouseDown, AddressOf imageMouseDown
