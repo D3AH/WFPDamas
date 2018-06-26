@@ -52,6 +52,8 @@
             y = y + 1
         ElseIf y > 0 Then
             y = y - 1
+        Else
+            Return False
         End If
         If x = 0 Then
             z1 = x + 1
