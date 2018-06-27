@@ -22,7 +22,7 @@
 
         Me.Image = image
         Me.Image.BringToFront()
-        Me.Image.BackColor = Color.Black
+        Me.Image.BackColor = Color.Transparent
 
         'Eventos
         AddHandler image.MouseDown, AddressOf imageMouseDown
@@ -91,13 +91,14 @@
         sender.bringtofront()
     End Sub
 
-    Public Sub imageMouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
+    Public Sub imageMouseUp(ByVal sender As Object, ByVal __ As System.Windows.Forms.MouseEventArgs)
         If Not moverme(coordenadasInicial.X / 75, coordenadasInicial.Y / 75) Then
             sender.top = coordenadasInicial.Y
             sender.left = coordenadasInicial.X
         Else
-            sender.top = Tablero.MatrixTablero(sender.left / 75, sender.top / 75).Location.Y
-            sender.left = Tablero.MatrixTablero(sender.left / 75, sender.top / 75).Location.X
+            Dim posicion = Tablero.MatrixTablero((Tablero.MousePosition.X - Tablero.Left) \ 75, (Tablero.MousePosition.Y - Tablero.Top) \ 75)
+            sender.top = posicion.Location.Y
+            sender.left = posicion.Location.X
         End If
     End Sub
 

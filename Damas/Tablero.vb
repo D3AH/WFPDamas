@@ -59,7 +59,7 @@
 
     Private Sub Tablero_Click(sender As Object, e As EventArgs) Handles MyBase.Click
         ColocarCuadrantes()
+        Me.BackgroundImage = My.Resources.tablero_classic
         ColocarPiezas()
     End Sub
-
 End Class

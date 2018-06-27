@@ -22,20 +22,19 @@ Partial Class Inicio
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ButtonJugar = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'ButtonJugar
+        'PictureBox1
         '
-        Me.ButtonJugar.BackColor = System.Drawing.SystemColors.Window
-        Me.ButtonJugar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonJugar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonJugar.Location = New System.Drawing.Point(463, 363)
-        Me.ButtonJugar.Name = "ButtonJugar"
-        Me.ButtonJugar.Size = New System.Drawing.Size(150, 46)
-        Me.ButtonJugar.TabIndex = 0
-        Me.ButtonJugar.Text = "Jugar"
-        Me.ButtonJugar.UseVisualStyleBackColor = False
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = Global.Damas.My.Resources.Resources.ImgBtnJugar
+        Me.PictureBox1.Location = New System.Drawing.Point(469, 358)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(152, 50)
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
         '
         'Inicio
         '
@@ -44,14 +43,16 @@ Partial Class Inicio
         Me.BackgroundImage = Global.Damas.My.Resources.Resources.portrait
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(684, 651)
-        Me.Controls.Add(Me.ButtonJugar)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Inicio"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Damas"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents ButtonJugar As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

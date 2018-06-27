@@ -121,6 +121,9 @@
   <data name="blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ImgBtnJugar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImgBtnJugar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="move" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\move.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -132,9 +135,6 @@
   </data>
   <data name="peon_negro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\peon-negro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="portrait2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\portrait2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -150,5 +150,8 @@
   </data>
   <data name="tablero_classic_perspectiva" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tablero-classic-perspectiva.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\portrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
