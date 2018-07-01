@@ -129,31 +129,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tablero-classic.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\tablero-classic-perspectiva.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\peon-blanco.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\peon-negro.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reina-blanca.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reina-negra.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\move.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\blanco.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\negro.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\portrait2.png" />
@@ -163,6 +145,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\peon-blanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reina-blanca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reina-negra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tablero-classic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\negro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\peon-negro.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

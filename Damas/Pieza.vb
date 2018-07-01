@@ -92,13 +92,17 @@
     End Sub
 
     Public Sub imageMouseUp(ByVal sender As Object, ByVal __ As System.Windows.Forms.MouseEventArgs)
-        If Not moverme(coordenadasInicial.X / 75, coordenadasInicial.Y / 75) Then
+        If colorValue Is Tablero.turno Then
+            sender.top = coordenadasInicial.Y
+            sender.left = coordenadasInicial.X
+        ElseIf Not moverme(coordenadasInicial.X / 75, coordenadasInicial.Y / 75) Then
             sender.top = coordenadasInicial.Y
             sender.left = coordenadasInicial.X
         Else
             Dim posicion = Tablero.MatrixTablero((Tablero.MousePosition.X - Tablero.Left) \ 75, (Tablero.MousePosition.Y - Tablero.Top) \ 75)
             sender.top = posicion.Location.Y
             sender.left = posicion.Location.X
+            Tablero.turno = colorValue
         End If
     End Sub
 

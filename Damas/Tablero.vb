@@ -1,5 +1,6 @@
 ﻿Public Class Tablero
     Public MatrixTablero(7, 7) As PictureBox
+    Public turno = "B"
 
     Private Sub Tablero_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Application.Exit()
