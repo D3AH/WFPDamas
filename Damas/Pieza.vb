@@ -66,10 +66,10 @@
             z2 = x + 1
         End If
 
-        If Tablero.MatrixTablero(z1, y).ClientRectangle.Contains(Tablero.MatrixTablero(z1, y).PointToClient(Control.MousePosition)) Then
+        If Tablero.MatrixTablero(z1, y).ClientRectangle.Contains(Tablero.MatrixTablero(z1, y).PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(z1, y).Tag IsNot "1" Then
             Return True
         End If
-        If Tablero.MatrixTablero(z2, y).ClientRectangle.Contains(Tablero.MatrixTablero(z2, y).PointToClient(Control.MousePosition)) Then
+        If Tablero.MatrixTablero(z2, y).ClientRectangle.Contains(Tablero.MatrixTablero(z2, y).PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(z2, y).Tag IsNot "1" Then
             Return True
         End If
     End Function
@@ -103,6 +103,8 @@
             sender.top = posicion.Location.Y
             sender.left = posicion.Location.X
             Tablero.turno = colorValue
+            Tablero.MatrixTablero((Tablero.MousePosition.X - Tablero.Left) \ 75, (Tablero.MousePosition.Y - Tablero.Top) \ 75).Tag = "1"
+            Tablero.MatrixTablero(coordenadasInicial.X \ 75, coordenadasInicial.Y \ 75).Tag = "0"
         End If
     End Sub
 

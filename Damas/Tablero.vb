@@ -15,7 +15,7 @@
                 Else
                     cuadrante.Image = My.Resources.blanco
                 End If
-                cuadrante.Tag = "C" & x & y
+                cuadrante.Tag = "0"
                 cuadrante.Size = New Size(75, 75)
                 cuadrante.Location = New Point(x * 75, y * 75)
                 MatrixTablero(x, y) = cuadrante
@@ -43,9 +43,10 @@
                                                {0, 7}, {2, 7}, {4, 7}, {6, 7}}
         For index = 0 To 11
             piezasNegras(index).Image.Location = New Point(matrixNegra(index, 0) * 75, matrixNegra(index, 1) * 75)
+            MatrixTablero(matrixNegra(index, 0), matrixNegra(index, 1)).Tag = "1"
             Controls.Add(piezasNegras(index).Image)
             piezasNegras(index).Image.BringToFront()
-            Threading.Thread.Sleep(100)
+            Threading.Thread.Sleep(10)
             Refresh()
         Next
 
@@ -53,7 +54,7 @@
             piezasBlancas(index).Image.Location = New Point(matrixBlanca(index, 0) * 75, matrixBlanca(index, 1) * 75)
             Controls.Add(piezasBlancas(index).Image)
             piezasBlancas(index).Image.BringToFront()
-            Threading.Thread.Sleep(100)
+            Threading.Thread.Sleep(10)
             Refresh()
         Next
     End Sub
