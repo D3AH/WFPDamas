@@ -22,15 +22,39 @@ Partial Class Tablero
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Tablero))
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(12, 606)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(120, 23)
+        Me.Button3.TabIndex = 2
+        Me.Button3.Text = "Nuevo Juego"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(468, 606)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(120, 23)
+        Me.Button2.TabIndex = 4
+        Me.Button2.Text = "Salir"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Tablero
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.Damas.My.Resources.Resources.portrait2
-        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(600, 600)
+        Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.ClientSize = New System.Drawing.Size(600, 637)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button3)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Tablero"
@@ -39,4 +63,8 @@ Partial Class Tablero
         Me.ResumeLayout(False)
 
     End Sub
+
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
 End Class

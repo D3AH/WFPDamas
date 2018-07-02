@@ -3,6 +3,8 @@
     Public turno = "B"
     Public piezasBlancas(11) As Pieza
     Public piezasNegras(11) As Pieza
+    Public comidasxN As Integer = 0
+    Public comidasxB As Integer = 0
 
     Private Sub Tablero_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Application.Exit()
@@ -54,8 +56,8 @@
         For index = 0 To 11
             piezasBlancas(index).Image.Location = New Point(matrixBlanca(index, 0) * 75, matrixBlanca(index, 1) * 75)
             MatrixTablero(matrixBlanca(index, 0), matrixBlanca(index, 1)).vacio = False
-            MatrixTablero(matrixBlanca(index, 0), matrixNegra(index, 1)).pieza = index
-            MatrixTablero(matrixBlanca(index, 0), matrixNegra(index, 1)).color = "B"
+            MatrixTablero(matrixBlanca(index, 0), matrixBlanca(index, 1)).pieza = index
+            MatrixTablero(matrixBlanca(index, 0), matrixBlanca(index, 1)).color = "B"
             Controls.Add(piezasBlancas(index).Image)
             piezasBlancas(index).Image.BringToFront()
             Threading.Thread.Sleep(10)
@@ -67,5 +69,13 @@
         ColocarCuadrantes()
         Me.BackgroundImage = My.Resources.tablero_classic
         ColocarPiezas()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Application.Exit()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Application.Restart()
     End Sub
 End Class
