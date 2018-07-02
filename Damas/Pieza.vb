@@ -1,8 +1,9 @@
 ﻿Public Class Pieza
-    Private colorValue As String
+    Private ReadOnly colorValue As String
     Private rangeValue As Integer
     Private coordenadas As Point
     Private coordenadasInicial As Point
+    Public Image As PictureBox
 
     'Constructor
     Public Sub New(ByVal colorValue As String)
@@ -31,21 +32,17 @@
 
     End Sub
 
-    'GS Rango
-    Public Property Range() As String
+    Public ReadOnly Property Index() As Integer
         Get
-            ' Gets the property value.
-            Return rangeValue
+            If colorValue = "N" Then
+                Return Array.IndexOf(Tablero.piezasNegras, Me)
+            Else
+                Return Array.IndexOf(Tablero.piezasBlancas, Me)
+            End If
         End Get
-        Set(ByVal Value As String)
-            ' Sets the property value.
-            rangeValue = Value
-        End Set
     End Property
 
-    'GS Imagen
-    Public Property Image() As PictureBox
-
+    'Movimientos
     Public Function moverme(ByVal x As Integer, ByVal y As Integer) As Boolean
         Dim z1, z2 As Integer
         If Me.colorValue = "N" And y < 7 Then
@@ -66,10 +63,10 @@
             z2 = x + 1
         End If
 
-        If Tablero.MatrixTablero(z1, y).ClientRectangle.Contains(Tablero.MatrixTablero(z1, y).PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(z1, y).Tag IsNot "1" Then
+        If Tablero.MatrixTablero(z1, y).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(z1, y).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(z1, y).vacio Then
             Return True
         End If
-        If Tablero.MatrixTablero(z2, y).ClientRectangle.Contains(Tablero.MatrixTablero(z2, y).PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(z2, y).Tag IsNot "1" Then
+        If Tablero.MatrixTablero(z2, y).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(z2, y).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(z2, y).vacio Then
             Return True
         End If
     End Function
@@ -92,19 +89,26 @@
     End Sub
 
     Public Sub imageMouseUp(ByVal sender As Object, ByVal __ As System.Windows.Forms.MouseEventArgs)
+        Dim x As Integer = coordenadasInicial.X / 75
+        Dim y As Integer = coordenadasInicial.Y / 75
+        'Determina el turno
         If colorValue Is Tablero.turno Then
             sender.top = coordenadasInicial.Y
             sender.left = coordenadasInicial.X
-        ElseIf Not moverme(coordenadasInicial.X / 75, coordenadasInicial.Y / 75) Then
+            'Determina si se puede mover
+        ElseIf moverme(x, y) Then
+            Dim posicion = Tablero.MatrixTablero((Tablero.MousePosition.X - Tablero.Left) \ 75, (Tablero.MousePosition.Y - Tablero.Top) \ 75)
+            sender.top = posicion.imagen.Location.Y
+            sender.left = posicion.imagen.Location.X
+            Tablero.turno = colorValue
+            posicion.vacio = False
+            posicion.pieza = Me.Index
+            Tablero.MatrixTablero(x, y).vacio = True
+            Tablero.MatrixTablero(x, y).pieza = Nothing
+            'En el caso contrario devuelva a la posicion inicial
+        Else
             sender.top = coordenadasInicial.Y
             sender.left = coordenadasInicial.X
-        Else
-            Dim posicion = Tablero.MatrixTablero((Tablero.MousePosition.X - Tablero.Left) \ 75, (Tablero.MousePosition.Y - Tablero.Top) \ 75)
-            sender.top = posicion.Location.Y
-            sender.left = posicion.Location.X
-            Tablero.turno = colorValue
-            Tablero.MatrixTablero((Tablero.MousePosition.X - Tablero.Left) \ 75, (Tablero.MousePosition.Y - Tablero.Top) \ 75).Tag = "1"
-            Tablero.MatrixTablero(coordenadasInicial.X \ 75, coordenadasInicial.Y \ 75).Tag = "0"
         End If
     End Sub
 
