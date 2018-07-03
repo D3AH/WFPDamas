@@ -64,8 +64,10 @@
 
         If y = 0 Then
             y1 = y
+            y2 = y + 1
         ElseIf y = 7 Then
             y2 = y
+            y1 = y - 1
         Else
             y1 = y - 1
             y2 = y + 1
@@ -83,9 +85,9 @@
             Return True
         ElseIf Tablero.MatrixTablero(x2, y2).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(x2, y2).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(x2, y2).vacio Then
             Return True
-        ElseIf Tablero.MatrixTablero(x, y).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(x, y).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(x, y).vacio Then
+        ElseIf Tablero.MatrixTablero(x, y1).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(x, y1).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(x, y1).vacio Then
             Return True
-        ElseIf Tablero.MatrixTablero(x, y).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(x, y).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(x, y).vacio Then
+        ElseIf Tablero.MatrixTablero(x, y2).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(x, y2).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(x, y2).vacio Then
             Return True
         Else
             Return False
