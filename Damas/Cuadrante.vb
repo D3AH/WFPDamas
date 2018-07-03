@@ -10,7 +10,7 @@
         imagen = New PictureBox
         color = "X"
 
-        AddHandler imagen.MouseDown, AddressOf imageMouseDown
+        'AddHandler imagen.MouseDown, AddressOf imageMouseDown
     End Sub
 
     Public Sub imageMouseDown(ByVal sender As Object, e As System.Windows.Forms.MouseEventArgs)

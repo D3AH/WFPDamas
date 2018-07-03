@@ -151,9 +151,11 @@
         If colorValue Is "N" Then
             y = y + 1
             Tablero.comidasxN = Tablero.comidasxN + 1
+            Tablero.comidasBlancas.Text = Tablero.comidasxN
         Else
             y = y - 1
-            Tablero.comidasxB = Tablero.comidasxN + 1
+            Tablero.comidasxB = Tablero.comidasxB + 1
+            Tablero.comidasNegras.Text = Tablero.comidasxB
         End If
         Me.Lista(Tablero.MatrixTablero(x, y).pieza)
         Tablero.MatrixTablero(x, y).vacio = True
@@ -205,6 +207,8 @@
             MsgBox("Negras ganaron!")
             Application.Restart()
         End If
+
+        Tablero.LabelTurno.Text = Tablero.turno
     End Sub
 
 End Class
