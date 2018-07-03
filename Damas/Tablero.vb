@@ -1,8 +1,11 @@
 ﻿Public Class Tablero
+
     Public MatrixTablero(7, 7) As Cuadrante
     Public turno = "B"
     Public piezasBlancas(11) As Pieza
     Public piezasNegras(11) As Pieza
+    Public reinasBlancas(11) As Reina
+    Public reinasNegras(11) As Reina
     Public comidasxN As Integer = 0
     Public comidasxB As Integer = 0
 
@@ -78,4 +81,5 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Application.Restart()
     End Sub
+
 End Class
