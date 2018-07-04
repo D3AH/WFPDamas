@@ -51,11 +51,11 @@ Partial Class Tablero
         'LabelTurno
         '
         Me.LabelTurno.AutoSize = True
-        Me.LabelTurno.Location = New System.Drawing.Point(155, 612)
+        Me.LabelTurno.Location = New System.Drawing.Point(145, 611)
         Me.LabelTurno.Name = "LabelTurno"
-        Me.LabelTurno.Size = New System.Drawing.Size(35, 13)
+        Me.LabelTurno.Size = New System.Drawing.Size(67, 13)
         Me.LabelTurno.TabIndex = 5
-        Me.LabelTurno.Text = "Turno"
+        Me.LabelTurno.Text = "Ultimo Turno"
         '
         'comidasBlancas
         '

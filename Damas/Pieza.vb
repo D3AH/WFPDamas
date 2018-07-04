@@ -17,7 +17,7 @@
         End If
 
         image.SizeMode = 1
-        image.Size = New Size(75, 75)
+        image.Size = New Size(60, 60)
 
         Me.Image = image
         Me.Image.BringToFront()
@@ -27,6 +27,7 @@
         AddHandler image.MouseDown, AddressOf imageMouseDown
         AddHandler image.MouseMove, AddressOf imageMouseMove
         AddHandler image.MouseUp, AddressOf imageMouseUp
+        AddHandler image.MouseHover, AddressOf imageHover
 
     End Sub
 
@@ -41,7 +42,7 @@
         End Get
     End Property
 
-    Public Sub Lista(ByVal index As Integer)
+    Public Sub Eliminar(ByVal index As Integer)
         If colorValue = "N" Then
             Tablero.Controls.Remove(Tablero.piezasBlancas(index).Image)
         Else
@@ -156,7 +157,7 @@
             Tablero.comidasxB = Tablero.comidasxB + 1
             Tablero.comidasNegras.Text = Tablero.comidasxB
         End If
-        Me.Lista(Tablero.MatrixTablero(x, y).pieza)
+        Eliminar(Tablero.MatrixTablero(x, y).pieza)
         Tablero.MatrixTablero(x, y).vacio = True
         Tablero.MatrixTablero(x, y).pieza = Nothing
         Tablero.MatrixTablero(x, y).color = "X"
@@ -228,4 +229,18 @@
         Tablero.LabelTurno.Text = Tablero.turno
     End Sub
 
+    Public Sub imageHover(ByVal sender As Object, ByVal e As EventArgs)
+        ' Create the ToolTip and associate with the Form container.
+        Dim toolTip1 As New ToolTip()
+
+        ' Set up the delays for the ToolTip.
+        toolTip1.AutoPopDelay = 5000
+        toolTip1.InitialDelay = 300
+        toolTip1.ReshowDelay = 500
+        ' Force the ToolTip text to be displayed whether or not the form is active.
+        toolTip1.ShowAlways = True
+
+        ' Set up the ToolTip text for the Button and Checkbox.
+        toolTip1.SetToolTip(Me.Image, Str(Me.Index))
+    End Sub
 End Class

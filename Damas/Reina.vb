@@ -41,7 +41,7 @@
         End Get
     End Property
 
-    Public Sub Lista(ByVal index As Integer)
+    Public Sub Eliminar(ByVal index As Integer)
         If colorValue = "N" Then
             Tablero.Controls.Remove(Tablero.piezasBlancas(index).Image)
         Else
@@ -100,8 +100,10 @@
 
         If x = 0 Then
             x1 = x
+            x2 = x + 1
         ElseIf x = 7 Then
             x2 = x
+            x1 = x - 1
         Else
             x1 = x - 1
             x2 = x + 1
@@ -154,10 +156,12 @@
     Public Sub come(ByVal sender As Object, ByVal posicion As Object, ByVal x As Integer, ByVal y As Integer)
         If colorValue Is "N" Then
             Tablero.comidasxN = Tablero.comidasxN + 1
+            Tablero.comidasBlancas.Text = Tablero.comidasxN
         Else
             Tablero.comidasxB = Tablero.comidasxN + 1
+            Tablero.comidasNegras.Text = Tablero.comidasxB
         End If
-        Me.Lista(Tablero.MatrixTablero(x, y).pieza)
+        Eliminar(Tablero.MatrixTablero(posicion.imagen.location.X / 75, posicion.imagen.location.Y / 75).pieza)
         Tablero.MatrixTablero(x, y).vacio = True
         Tablero.MatrixTablero(x, y).pieza = Nothing
         Tablero.MatrixTablero(x, y).color = "X"

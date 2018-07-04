@@ -1,5 +1,5 @@
 ﻿Public Class Tablero
-
+    'Author: Diego Auyon
     Public MatrixTablero(7, 7) As Cuadrante
     Public turno = "B"
     Public piezasBlancas(11) As Pieza
@@ -85,9 +85,4 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Application.Restart()
     End Sub
-
-<<<<<<< HEAD
 End Class
-=======
-End Class
->>>>>>> 0b80d6f5b11f2589b1f31402e6fe773c70f26244
