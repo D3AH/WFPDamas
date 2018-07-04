@@ -1,8 +1,11 @@
 ﻿Public Class Tablero
+
     Public MatrixTablero(7, 7) As Cuadrante
     Public turno = "B"
     Public piezasBlancas(11) As Pieza
     Public piezasNegras(11) As Pieza
+    Public reinasBlancas(11) As Reina
+    Public reinasNegras(11) As Reina
     Public comidasxN As Integer = 0
     Public comidasxB As Integer = 0
     Private inicio As Boolean = True
@@ -83,4 +86,8 @@
         Application.Restart()
     End Sub
 
+<<<<<<< HEAD
 End Class
+=======
+End Class
+>>>>>>> 0b80d6f5b11f2589b1f31402e6fe773c70f26244

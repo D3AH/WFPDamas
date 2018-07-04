@@ -1,6 +1,5 @@
 ﻿Public Class Pieza
     Private ReadOnly colorValue As String
-    Private rangeValue As Integer
     Private coordenadas As Point
     Private coordenadasInicial As Point
     Public Image As PictureBox
@@ -9,7 +8,6 @@
     Public Sub New(ByVal colorValue As String)
         ' Set the property value.
         Me.colorValue = colorValue
-        Me.rangeValue = 1
 
         Dim image As New PictureBox
         If colorValue = "B" Then
@@ -134,6 +132,7 @@
         Tablero.turno = colorValue
         posicion.vacio = False
         posicion.pieza = Me.Index
+        posicion.color = colorValue
         Tablero.MatrixTablero(x, y).vacio = True
         Tablero.MatrixTablero(x, y).pieza = Nothing
         Tablero.MatrixTablero(x, y).color = "X"
@@ -198,6 +197,24 @@
         Else
             sender.top = coordenadasInicial.Y
             sender.left = coordenadasInicial.X
+        End If
+
+        If posicion.imagen.Location.Y = 0 Or posicion.imagen.Location.Y = 525 Then
+            If colorValue = "N" Then
+                Dim reina = New Reina("N")
+                reina.Image.Location = New Point(posicion.imagen.Location)
+                Tablero.reinasNegras(posicion.pieza) = reina
+                Tablero.Controls.Add(Tablero.reinasNegras(posicion.pieza).Image)
+                Tablero.reinasNegras(posicion.pieza).Image.BringToFront()
+                Tablero.Controls.Remove(Me.Image)
+            Else
+                Dim reina = New Reina("B")
+                reina.Image.Location = New Point(posicion.imagen.Location)
+                Tablero.reinasBlancas(posicion.pieza) = reina
+                Tablero.Controls.Add(Tablero.reinasBlancas(posicion.pieza).Image)
+                Tablero.reinasBlancas(posicion.pieza).Image.BringToFront()
+                Tablero.Controls.Remove(Me.Image)
+            End If
         End If
 
         If Tablero.comidasxB = 12 Then

@@ -96,6 +96,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Pieza.vb" />
+    <Compile Include="Reina.vb" />
     <Compile Include="Tablero.Designer.vb">
       <DependentUpon>Tablero.vb</DependentUpon>
     </Compile>
