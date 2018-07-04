@@ -96,50 +96,46 @@
     End Function
 
     Public Function comer(ByVal x As Integer, ByVal y As Integer) As Boolean
-        Dim z1, z2, z3, z4, y2 As Integer
-        If Me.colorValue = "N" And y < 7 Then
-            y = y + 1
-        ElseIf y > 0 Then
-            y = y - 1
-        Else
-            MsgBox("Ups1")
-            Return False
-        End If
+        Dim x1, x2, y1, y2 As Integer
+
         If x = 0 Then
-            z1 = x + 1
-            z2 = x + 1
+            x1 = x
         ElseIf x = 7 Then
-            z2 = x - 1
-            z1 = x - 1
+            x2 = x
         Else
-            z1 = x - 1
-            z2 = x + 1
+            x1 = x - 1
+            x2 = x + 1
         End If
 
-        If Me.colorValue = "N" And y <= 6 Then
+        If y = 0 Then
+            y1 = y
             y2 = y + 1
-        ElseIf y >= 1 Then
-            y2 = y - 1
+        ElseIf y = 7 Then
+            y2 = y
+            y1 = y - 1
         Else
-            MsgBox("Ups")
-            Return False
-        End If
-        If x = 1 Then
-            z3 = z1 + 1
-            z4 = z2 + 1
-        ElseIf x = 6 Then
-            z3 = z1 - 1
-            z4 = z2 - 1
-        Else
-            z3 = z1 - 1
-            z4 = z2 + 1
+            y1 = y - 1
+            y2 = y + 1
         End If
 
-        If Tablero.MatrixTablero(z3, y2).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(z3, y2).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(z3, y2).vacio And Tablero.MatrixTablero(z1, y).color IsNot colorValue Then
+        If Tablero.MatrixTablero(x1, y).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(x1, y).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(x1, y).color IsNot colorValue Then
             Return True
-        End If
-        If Tablero.MatrixTablero(z4, y2).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(z4, y2).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(z4, y2).vacio And Tablero.MatrixTablero(z2, y).color IsNot colorValue Then
+        ElseIf Tablero.MatrixTablero(x2, y).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(x2, y).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(x2, y).color IsNot colorValue Then
             Return True
+        ElseIf Tablero.MatrixTablero(x1, y1).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(x1, y1).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(x1, y1).color IsNot colorValue Then
+            Return True
+        ElseIf Tablero.MatrixTablero(x2, y1).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(x2, y1).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(x2, y1).color IsNot colorValue Then
+            Return True
+        ElseIf Tablero.MatrixTablero(x1, y2).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(x1, y2).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(x1, y2).color IsNot colorValue Then
+            Return True
+        ElseIf Tablero.MatrixTablero(x2, y2).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(x2, y2).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(x2, y2).color IsNot colorValue Then
+            Return True
+        ElseIf Tablero.MatrixTablero(x, y1).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(x, y1).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(x, y1).color IsNot colorValue Then
+            Return True
+        ElseIf Tablero.MatrixTablero(x, y2).imagen.ClientRectangle.Contains(Tablero.MatrixTablero(x, y2).imagen.PointToClient(Control.MousePosition)) And Tablero.MatrixTablero(x, y2).color IsNot colorValue Then
+            Return True
+        Else
+            Return False
         End If
     End Function
 
@@ -148,26 +144,17 @@
         sender.left = posicion.imagen.Location.X
         Tablero.turno = colorValue
         posicion.vacio = False
-        posicion.pieza = Me.Index
+        posicion.pieza = Index
+        posicion.color = colorValue
         Tablero.MatrixTablero(x, y).vacio = True
         Tablero.MatrixTablero(x, y).pieza = Nothing
         Tablero.MatrixTablero(x, y).color = "X"
     End Sub
 
     Public Sub come(ByVal sender As Object, ByVal posicion As Object, ByVal x As Integer, ByVal y As Integer)
-        If x > posicion.imagen.Location.X / 75 Then
-            'Izquierda
-            x = x - 1
-        Else
-            'Derecha
-            x = x + 1
-        End If
-
         If colorValue Is "N" Then
-            y = y + 1
             Tablero.comidasxN = Tablero.comidasxN + 1
         Else
-            y = y - 1
             Tablero.comidasxB = Tablero.comidasxN + 1
         End If
         Me.Lista(Tablero.MatrixTablero(x, y).pieza)

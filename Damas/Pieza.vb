@@ -132,6 +132,7 @@
         Tablero.turno = colorValue
         posicion.vacio = False
         posicion.pieza = Me.Index
+        posicion.color = colorValue
         Tablero.MatrixTablero(x, y).vacio = True
         Tablero.MatrixTablero(x, y).pieza = Nothing
         Tablero.MatrixTablero(x, y).color = "X"
