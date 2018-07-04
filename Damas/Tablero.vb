@@ -5,6 +5,7 @@
     Public piezasNegras(11) As Pieza
     Public comidasxN As Integer = 0
     Public comidasxB As Integer = 0
+    Private inicio As Boolean = True
 
     Private Sub Tablero_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Application.Exit()
@@ -66,9 +67,12 @@
     End Sub
 
     Private Sub Tablero_Click(sender As Object, e As EventArgs) Handles MyBase.Click
-        ColocarCuadrantes()
-        Me.BackgroundImage = My.Resources.tablero_classic
-        ColocarPiezas()
+        If inicio Then
+            ColocarCuadrantes()
+            Me.BackgroundImage = My.Resources.tablero_classic
+            ColocarPiezas()
+            inicio = False
+        End If
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -78,4 +82,5 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Application.Restart()
     End Sub
+
 End Class

@@ -26,7 +26,6 @@ Partial Class Tablero
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.LabelTurno = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.comidasBlancas = New System.Windows.Forms.Label()
         Me.comidasNegras = New System.Windows.Forms.Label()
         Me.SuspendLayout()
@@ -58,32 +57,23 @@ Partial Class Tablero
         Me.LabelTurno.TabIndex = 5
         Me.LabelTurno.Text = "Turno"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 13)
-        Me.Label1.TabIndex = 6
-        Me.Label1.Text = "Label1"
-        '
         'comidasBlancas
         '
         Me.comidasBlancas.AutoSize = True
         Me.comidasBlancas.Location = New System.Drawing.Point(218, 611)
         Me.comidasBlancas.Name = "comidasBlancas"
-        Me.comidasBlancas.Size = New System.Drawing.Size(39, 13)
+        Me.comidasBlancas.Size = New System.Drawing.Size(51, 13)
         Me.comidasBlancas.TabIndex = 7
-        Me.comidasBlancas.Text = "Label2"
+        Me.comidasBlancas.Text = "Puntos N"
         '
         'comidasNegras
         '
         Me.comidasNegras.AutoSize = True
         Me.comidasNegras.Location = New System.Drawing.Point(275, 611)
         Me.comidasNegras.Name = "comidasNegras"
-        Me.comidasNegras.Size = New System.Drawing.Size(39, 13)
+        Me.comidasNegras.Size = New System.Drawing.Size(50, 13)
         Me.comidasNegras.TabIndex = 8
-        Me.comidasNegras.Text = "Label2"
+        Me.comidasNegras.Text = "Puntos B"
         '
         'Tablero
         '
@@ -95,7 +85,6 @@ Partial Class Tablero
         Me.ClientSize = New System.Drawing.Size(600, 637)
         Me.Controls.Add(Me.comidasNegras)
         Me.Controls.Add(Me.comidasBlancas)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.LabelTurno)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button3)
@@ -113,7 +102,6 @@ Partial Class Tablero
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents LabelTurno As Label
-    Friend WithEvents Label1 As Label
     Friend WithEvents comidasBlancas As Label
     Friend WithEvents comidasNegras As Label
 End Class
